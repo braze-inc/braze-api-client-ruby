@@ -1,14 +1,12 @@
 # Braze API Ruby Client
 
-> :warning: **This library is in early development, subject to breaking changes, and may be discontinued.**
-
-Braze - the Ruby gem for the Braze
-
 Track users, send messages, export data, and more
+
+> :warning: **This library is in early development, subject to breaking changes, and may be discontinued.**
 
 ## Installation
 
-### Build a gem
+### Build gem
 
 To build the Ruby code into a gem:
 
@@ -69,7 +67,6 @@ require 'braze_api_client'
 
 # Setup authorization
 Braze.configure do |config|
-  # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_API_KEY'
   config.host = 'rest.YOUR-REGION.braze.com'
 end
@@ -90,7 +87,7 @@ end
 
 You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) to record custom events, purchases, and update user profile attributes.
 
-```
+```ruby
 braze_api = Braze::RestApi.new
 
 begin
@@ -127,7 +124,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://elsa.braze.com*
+All URIs are relative to *https://rest.iad-01.braze.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

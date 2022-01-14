@@ -139,7 +139,7 @@ module Braze
 
     def initialize
       @scheme = 'https'
-      @host = 'elsa.braze.com'
+      @host = 'rest.iad-01.braze.com'
       @base_path = ''
       @server_index = 0
       @server_operation_index = {}
@@ -229,19 +229,22 @@ module Braze
     def server_settings
       [
         {
-          url: "https://elsa.braze.com",
-          description: "The development server",
-        },
-        {
           url: "https://{server}",
           description: "Braze API server",
           variables: {
             server: {
                 description: "No description provided",
-                default_value: "elsa.braze.com",
+                default_value: "rest.iad-01.braze.com",
                 enum_values: [
-                  "elsa.braze.com",
-                  "sondheim.braze.com"
+                  "rest.iad-01.braze.com",
+                  "rest.iad-02.braze.com",
+                  "rest.iad-03.braze.com",
+                  "rest.iad-04.braze.com",
+                  "rest.iad-05.braze.com",
+                  "rest.iad-06.braze.com",
+                  "rest.iad-08.braze.com",
+                  "rest.fra-01.braze.eu",
+                  "rest.fra-02.braze.eu"
                 ]
               }
             }
