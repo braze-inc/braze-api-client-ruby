@@ -72,26 +72,28 @@ Braze.configure do |config|
 end
 
 api_instance = Braze::RestApi.new
-users_track_request = Braze::UsersTrackRequest.new({attributes: [Braze::Event.new({name: 'name_example', time: Time.now})]}) # UsersTrackRequest | 
+body = Object # Object | 
 
 begin
-  result = api_instance.users_track(users_track_request)
+  result = api_instance.identify_user(body)
   p result
 rescue Braze::ApiError => e
-  puts "Exception when calling RestApi->users_track: #{e}"
+  puts "Exception when calling RestApi->identify_user: #{e}"
 end
 
 ```
 
-## Users Track
 
-You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) to record custom events, purchases, and update user profile attributes.
+## Endpoints
+### Track user
+
+You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) to record custom events, purchases, and update user profile attributes. Provide up to 75 of each type in a single request.
 
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.users_track({
+  result = braze_api.track_user({
     :events => [{
       :external_id => "user123",
       :app_id => "yourappid",
@@ -122,13 +124,124 @@ rescue Braze::ApiError => e
 end
 ```
 
+### Delete user
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.delete_user({
+    # use any or all of these 3 identifier types
+    :external_ids => ["user1", "user2"],
+    :user_aliases => ["alias123", "alias456"],
+    :braze_ids => ["braze_identifier1", "braze_identifier2"],
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
+### New user alias
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.new_user_alias({
+    :user_aliases => [{
+      :external_id => "user123", # optional
+      :alias_name => "c123",
+      :alias_label => "customer_id",
+    }]
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
+### Identify user
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.identify_user({
+    :aliases_to_identify => [{
+      :external_id => "user123",
+      :user_alias => {
+        :alias_name => "c123",
+        :alias_label => "customer_id",
+      }
+    }],
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
+### Identify user
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.identify_user({
+    :aliases_to_identify => [{
+      :external_id => "user123",
+      :user_alias => {
+        :alias_name => "c123",
+        :alias_label => "customer_id",
+      }
+    }],
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
+### Rename external ID
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.rename_exernal_id({
+    :external_id_renames => [{
+      :current_external_id => "user123",
+      :new_external_id => "u123",
+    }],
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
+### Remove external ID
+```ruby
+braze_api = Braze::RestApi.new
+
+begin
+  result = braze_api.rename_exernal_id({
+    :external_ids => ["user123", "user456"],
+  })
+  p result
+rescue Braze::ApiError => e
+  puts "Exception when calling RestApi->users_track: #{e}"
+end
+```
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://rest.iad-01.braze.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Braze::RestApi* | [**users_track**](docs/RestApi.md#users_track) | **POST** /users/track | 
+*Braze::RestApi* | [**identify_user**](docs/RestApi.md#identify_user) | **POST** /users/identify | 
+*Braze::RestApi* | [**new_user_alias**](docs/RestApi.md#new_user_alias) | **POST** /users/alias/new | 
+*Braze::RestApi* | [**remove_external_id**](docs/RestApi.md#remove_external_id) | **POST** /users/external_ids/remove | 
+*Braze::RestApi* | [**rename_external_id**](docs/RestApi.md#rename_external_id) | **POST** /users/external_ids/rename | 
+*Braze::RestApi* | [**track_user**](docs/RestApi.md#track_user) | **POST** /users/track | 
+*Braze::RestApi* | [**user_delete**](docs/RestApi.md#user_delete) | **POST** /users/delete | 
 
 
 ## Contributing
