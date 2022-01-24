@@ -1,4 +1,4 @@
-.github/workflows/rspec.yaml
+.github/workflows/rspec.yml
 .gitignore
 .openapi-generator-ignore
 .rspec
