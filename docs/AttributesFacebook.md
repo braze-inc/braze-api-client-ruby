@@ -1,4 +1,4 @@
-# Braze::AttributesFacebook
+# BrazeClient::AttributesFacebook
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::AttributesFacebook.new(
+instance = BrazeClient::AttributesFacebook.new(
   id: null,
   likes: null,
   num_friends: null

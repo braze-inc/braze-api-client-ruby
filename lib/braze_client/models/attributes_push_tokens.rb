@@ -13,26 +13,20 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class Event
-    attr_accessor :name
-
-    attr_accessor :time
-
+module BrazeClient
+  class AttributesPushTokens
     attr_accessor :app_id
 
-    attr_accessor :properties
+    attr_accessor :token
 
-    attr_accessor :_update_existing_only
+    attr_accessor :device_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'time' => :'time',
         :'app_id' => :'app_id',
-        :'properties' => :'properties',
-        :'_update_existing_only' => :'_update_existing_only'
+        :'token' => :'token',
+        :'device_id' => :'device_id'
       }
     end
 
@@ -44,11 +38,9 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'time' => :'Time',
         :'app_id' => :'String',
-        :'properties' => :'Object',
-        :'_update_existing_only' => :'Boolean'
+        :'token' => :'String',
+        :'device_id' => :'String'
       }
     end
 
@@ -62,35 +54,27 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::Event` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::AttributesPushTokens` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::Event`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::AttributesPushTokens`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
-      end
 
       if attributes.key?(:'app_id')
         self.app_id = attributes[:'app_id']
       end
 
-      if attributes.key?(:'properties')
-        self.properties = attributes[:'properties']
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'_update_existing_only')
-        self._update_existing_only = attributes[:'_update_existing_only']
+      if attributes.key?(:'device_id')
+        self.device_id = attributes[:'device_id']
       end
     end
 
@@ -98,12 +82,12 @@ module Braze
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @app_id.nil?
+        invalid_properties.push('invalid value for "app_id", app_id cannot be nil.')
       end
 
-      if @time.nil?
-        invalid_properties.push('invalid value for "time", time cannot be nil.')
+      if @token.nil?
+        invalid_properties.push('invalid value for "token", token cannot be nil.')
       end
 
       invalid_properties
@@ -112,8 +96,8 @@ module Braze
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @time.nil?
+      return false if @app_id.nil?
+      return false if @token.nil?
       true
     end
 
@@ -122,11 +106,9 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          time == o.time &&
           app_id == o.app_id &&
-          properties == o.properties &&
-          _update_existing_only == o._update_existing_only
+          token == o.token &&
+          device_id == o.device_id
     end
 
     # @see the `==` method
@@ -138,7 +120,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, time, app_id, properties, _update_existing_only].hash
+      [app_id, token, device_id].hash
     end
 
     # Builds the object from hash
@@ -208,7 +190,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

@@ -13,20 +13,23 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class AttributesFacebook
-    attr_accessor :id
+module BrazeClient
+  class UsersTrackResponse
+    attr_accessor :message
 
-    attr_accessor :likes
+    attr_accessor :attributes_processed
 
-    attr_accessor :num_friends
+    attr_accessor :events_processed
+
+    attr_accessor :purchases_processed
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'likes' => :'likes',
-        :'num_friends' => :'num_friends'
+        :'message' => :'message',
+        :'attributes_processed' => :'attributes_processed',
+        :'events_processed' => :'events_processed',
+        :'purchases_processed' => :'purchases_processed'
       }
     end
 
@@ -38,9 +41,10 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'likes' => :'Array<String>',
-        :'num_friends' => :'Integer'
+        :'message' => :'String',
+        :'attributes_processed' => :'Integer',
+        :'events_processed' => :'Integer',
+        :'purchases_processed' => :'Integer'
       }
     end
 
@@ -54,29 +58,31 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::AttributesFacebook` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersTrackResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::AttributesFacebook`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersTrackResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'likes')
-        if (value = attributes[:'likes']).is_a?(Array)
-          self.likes = value
-        end
+      if attributes.key?(:'attributes_processed')
+        self.attributes_processed = attributes[:'attributes_processed']
       end
 
-      if attributes.key?(:'num_friends')
-        self.num_friends = attributes[:'num_friends']
+      if attributes.key?(:'events_processed')
+        self.events_processed = attributes[:'events_processed']
+      end
+
+      if attributes.key?(:'purchases_processed')
+        self.purchases_processed = attributes[:'purchases_processed']
       end
     end
 
@@ -98,9 +104,10 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          likes == o.likes &&
-          num_friends == o.num_friends
+          message == o.message &&
+          attributes_processed == o.attributes_processed &&
+          events_processed == o.events_processed &&
+          purchases_processed == o.purchases_processed
     end
 
     # @see the `==` method
@@ -112,7 +119,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, likes, num_friends].hash
+      [message, attributes_processed, events_processed, purchases_processed].hash
     end
 
     # Builds the object from hash
@@ -182,7 +189,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

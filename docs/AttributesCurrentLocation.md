@@ -1,4 +1,4 @@
-# Braze::AttributesCurrentLocation
+# BrazeClient::AttributesCurrentLocation
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::AttributesCurrentLocation.new(
+instance = BrazeClient::AttributesCurrentLocation.new(
   latitude: null,
   longitude: null
 )

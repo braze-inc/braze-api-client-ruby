@@ -17,7 +17,7 @@ require 'tempfile'
 require 'time'
 require 'typhoeus'
 
-module Braze
+module BrazeClient
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -31,7 +31,7 @@ module Braze
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "braze_api_client ruby v1.0.0"
+      @user_agent = "braze_api_client ruby v0.1.0"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent
@@ -276,7 +276,7 @@ module Braze
         end
       else
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(return_type)
+        klass = BrazeClient.const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
     end

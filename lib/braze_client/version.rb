@@ -10,6 +10,6 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-module Braze
-  VERSION = '1.0.0'
+module BrazeClient
+  VERSION = '0.1.0'
 end

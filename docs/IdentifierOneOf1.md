@@ -1,4 +1,4 @@
-# Braze::IdentifierOneOf1
+# BrazeClient::IdentifierOneOf1
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::IdentifierOneOf1.new(
+instance = BrazeClient::IdentifierOneOf1.new(
   user_alias: null
 )
 ```

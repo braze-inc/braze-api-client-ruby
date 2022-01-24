@@ -9,7 +9,7 @@ Track users, send messages, export data, and more
 Add the following line to your Gemfile:
 
 ```
-gem "braze_api_client"
+gem "braze_client"
 ```
 
 Followed by running:
@@ -21,7 +21,7 @@ bundle install
 Or install it yourself as:
 
 ```shell
-gem install braze_api_client
+gem install braze_client
 ```
 
 ## Configuration
@@ -45,22 +45,12 @@ You can determine which API host to use based on your Braze dashboard URL:
 
 ```ruby
 # Load the gem
-require 'braze_api_client'
+require 'braze_client'
 
 # Setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   config.access_token = 'YOUR_API_KEY'
   config.server_variables[:host] = 'rest.YOUR-REGION.braze.com'
-end
-
-api_instance = Braze::RestApi.new
-body = Object # Object | 
-
-begin
-  result = api_instance.delete_users(body)
-  p result
-rescue Braze::ApiError => e
-  puts "Exception when calling RestApi->delete_users: #{e}"
 end
 
 ```
@@ -72,7 +62,7 @@ end
 You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) to record custom events, purchases, and update user profile attributes. Provide up to 75 of each type in a single request.
 
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.track_users({
@@ -101,14 +91,14 @@ begin
     ]
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
 
 ### Delete users
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.delete_users({
@@ -118,14 +108,14 @@ begin
     :braze_ids => ["braze_identifier1", "braze_identifier2"],
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
 
 ### Create new user aliases
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.new_user_aliases({
@@ -136,14 +126,14 @@ begin
     }]
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
 
 ### Identify users
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.identify_users({
@@ -156,14 +146,14 @@ begin
     }],
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
 
 ### Rename external IDs
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.rename_exernal_ids({
@@ -173,21 +163,21 @@ begin
     }],
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
 
 ### Remove external IDs
 ```ruby
-braze_api = Braze::RestApi.new
+braze_api = BrazeClient::RestApi.new
 
 begin
   result = braze_api.remove_exernal_ids({
     :external_ids => ["user123", "user456"],
   })
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
@@ -198,12 +188,12 @@ All URIs are relative to *http://https:/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Braze::RestApi* | [**delete_users**](docs/RestApi.md#delete_users) | **POST** /users/delete | 
-*Braze::RestApi* | [**identify_users**](docs/RestApi.md#identify_users) | **POST** /users/identify | 
-*Braze::RestApi* | [**new_user_aliases**](docs/RestApi.md#new_user_aliases) | **POST** /users/alias/new | 
-*Braze::RestApi* | [**remove_external_ids**](docs/RestApi.md#remove_external_ids) | **POST** /users/external_ids/remove | 
-*Braze::RestApi* | [**rename_external_ids**](docs/RestApi.md#rename_external_ids) | **POST** /users/external_ids/rename | 
-*Braze::RestApi* | [**track_users**](docs/RestApi.md#track_users) | **POST** /users/track | 
+*BrazeClient::RestApi* | [**delete_users**](docs/RestApi.md#delete_users) | **POST** /users/delete | 
+*BrazeClient::RestApi* | [**identify_users**](docs/RestApi.md#identify_users) | **POST** /users/identify | 
+*BrazeClient::RestApi* | [**new_user_aliases**](docs/RestApi.md#new_user_aliases) | **POST** /users/alias/new | 
+*BrazeClient::RestApi* | [**remove_external_ids**](docs/RestApi.md#remove_external_ids) | **POST** /users/external_ids/remove | 
+*BrazeClient::RestApi* | [**rename_external_ids**](docs/RestApi.md#rename_external_ids) | **POST** /users/external_ids/rename | 
+*BrazeClient::RestApi* | [**track_users**](docs/RestApi.md#track_users) | **POST** /users/track | 
 
 
 ## Contributing
@@ -211,7 +201,7 @@ Class | Method | HTTP request | Description
 This library is automatically generated. To make changes, please see [braze-api-client-codegen](https://github.com/braze-inc/braze-api-client-codegen)
 
 - API version: 0.1.0
-- Package version: 1.0.0
+- Package version: 0.1.0
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
 
 ## Legal

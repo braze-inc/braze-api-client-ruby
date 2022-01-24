@@ -10,5 +10,5 @@ rvm:
 script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
-  - gem build braze_api_client.gemspec
-  - gem install ./braze_api_client-1.0.0.gem
+  - gem build braze_client.gemspec
+  - gem install ./braze_client-0.1.0.gem

@@ -1,3 +1,4 @@
+
 if [ -z "$1" ]; then
   echo "Provide a commit message"
   exit 1

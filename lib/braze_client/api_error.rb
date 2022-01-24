@@ -10,7 +10,7 @@ OpenAPI Generator version: 5.2.1
 
 =end
 
-module Braze
+module BrazeClient
   class ApiError < StandardError
     attr_reader :code, :response_headers, :response_body
 

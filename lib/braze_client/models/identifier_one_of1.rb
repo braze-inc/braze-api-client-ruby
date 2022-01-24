@@ -13,23 +13,14 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class UsersTrackResponse
-    attr_accessor :message
-
-    attr_accessor :attributes_processed
-
-    attr_accessor :events_processed
-
-    attr_accessor :purchases_processed
+module BrazeClient
+  class IdentifierOneOf1
+    attr_accessor :user_alias
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'message' => :'message',
-        :'attributes_processed' => :'attributes_processed',
-        :'events_processed' => :'events_processed',
-        :'purchases_processed' => :'purchases_processed'
+        :'user_alias' => :'user_alias'
       }
     end
 
@@ -41,10 +32,7 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'message' => :'String',
-        :'attributes_processed' => :'Integer',
-        :'events_processed' => :'Integer',
-        :'purchases_processed' => :'Integer'
+        :'user_alias' => :'String'
       }
     end
 
@@ -58,31 +46,19 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::UsersTrackResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::IdentifierOneOf1` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::UsersTrackResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::IdentifierOneOf1`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'attributes_processed')
-        self.attributes_processed = attributes[:'attributes_processed']
-      end
-
-      if attributes.key?(:'events_processed')
-        self.events_processed = attributes[:'events_processed']
-      end
-
-      if attributes.key?(:'purchases_processed')
-        self.purchases_processed = attributes[:'purchases_processed']
+      if attributes.key?(:'user_alias')
+        self.user_alias = attributes[:'user_alias']
       end
     end
 
@@ -90,12 +66,17 @@ module Braze
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @user_alias.nil?
+        invalid_properties.push('invalid value for "user_alias", user_alias cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @user_alias.nil?
       true
     end
 
@@ -104,10 +85,7 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message == o.message &&
-          attributes_processed == o.attributes_processed &&
-          events_processed == o.events_processed &&
-          purchases_processed == o.purchases_processed
+          user_alias == o.user_alias
     end
 
     # @see the `==` method
@@ -119,7 +97,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [message, attributes_processed, events_processed, purchases_processed].hash
+      [user_alias].hash
     end
 
     # Builds the object from hash
@@ -189,7 +167,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

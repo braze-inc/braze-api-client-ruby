@@ -13,14 +13,26 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class AttributesArray
-    attr_accessor :attributes
+module BrazeClient
+  class AttributesTwitter
+    attr_accessor :id
+
+    attr_accessor :screen_name
+
+    attr_accessor :followers_count
+
+    attr_accessor :friends_count
+
+    attr_accessor :statuses_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes'
+        :'id' => :'id',
+        :'screen_name' => :'screen_name',
+        :'followers_count' => :'followers_count',
+        :'friends_count' => :'friends_count',
+        :'statuses_count' => :'statuses_count'
       }
     end
 
@@ -32,7 +44,11 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'attributes' => :'Array<Attributes>'
+        :'id' => :'Integer',
+        :'screen_name' => :'String',
+        :'followers_count' => :'Integer',
+        :'friends_count' => :'Integer',
+        :'statuses_count' => :'Integer'
       }
     end
 
@@ -46,21 +62,35 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::AttributesArray` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::AttributesTwitter` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::AttributesArray`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::AttributesTwitter`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Array)
-          self.attributes = value
-        end
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'screen_name')
+        self.screen_name = attributes[:'screen_name']
+      end
+
+      if attributes.key?(:'followers_count')
+        self.followers_count = attributes[:'followers_count']
+      end
+
+      if attributes.key?(:'friends_count')
+        self.friends_count = attributes[:'friends_count']
+      end
+
+      if attributes.key?(:'statuses_count')
+        self.statuses_count = attributes[:'statuses_count']
       end
     end
 
@@ -68,17 +98,12 @@ module Braze
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @attributes.nil?
-        invalid_properties.push('invalid value for "attributes", attributes cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @attributes.nil?
       true
     end
 
@@ -87,7 +112,11 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes
+          id == o.id &&
+          screen_name == o.screen_name &&
+          followers_count == o.followers_count &&
+          friends_count == o.friends_count &&
+          statuses_count == o.statuses_count
     end
 
     # @see the `==` method
@@ -99,7 +128,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attributes].hash
+      [id, screen_name, followers_count, friends_count, statuses_count].hash
     end
 
     # Builds the object from hash
@@ -169,7 +198,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

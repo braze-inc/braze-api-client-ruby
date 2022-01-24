@@ -1,4 +1,4 @@
-# Braze::GeneralError
+# BrazeClient::GeneralError
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::GeneralError.new(
+instance = BrazeClient::GeneralError.new(
   code: null,
   message: null
 )

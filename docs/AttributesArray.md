@@ -1,4 +1,4 @@
-# Braze::AttributesArray
+# BrazeClient::AttributesArray
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::AttributesArray.new(
+instance = BrazeClient::AttributesArray.new(
   attributes: null
 )
 ```

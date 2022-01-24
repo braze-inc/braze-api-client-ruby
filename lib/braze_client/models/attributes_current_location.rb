@@ -13,20 +13,17 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class AttributesPushTokens
-    attr_accessor :app_id
+module BrazeClient
+  class AttributesCurrentLocation
+    attr_accessor :latitude
 
-    attr_accessor :token
-
-    attr_accessor :device_id
+    attr_accessor :longitude
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'app_id' => :'app_id',
-        :'token' => :'token',
-        :'device_id' => :'device_id'
+        :'latitude' => :'latitude',
+        :'longitude' => :'longitude'
       }
     end
 
@@ -38,9 +35,8 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'app_id' => :'String',
-        :'token' => :'String',
-        :'device_id' => :'String'
+        :'latitude' => :'Float',
+        :'longitude' => :'Float'
       }
     end
 
@@ -54,27 +50,23 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::AttributesPushTokens` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::AttributesCurrentLocation` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::AttributesPushTokens`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::AttributesCurrentLocation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'app_id')
-        self.app_id = attributes[:'app_id']
+      if attributes.key?(:'latitude')
+        self.latitude = attributes[:'latitude']
       end
 
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
-      end
-
-      if attributes.key?(:'device_id')
-        self.device_id = attributes[:'device_id']
+      if attributes.key?(:'longitude')
+        self.longitude = attributes[:'longitude']
       end
     end
 
@@ -82,22 +74,12 @@ module Braze
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @app_id.nil?
-        invalid_properties.push('invalid value for "app_id", app_id cannot be nil.')
-      end
-
-      if @token.nil?
-        invalid_properties.push('invalid value for "token", token cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @app_id.nil?
-      return false if @token.nil?
       true
     end
 
@@ -106,9 +88,8 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          app_id == o.app_id &&
-          token == o.token &&
-          device_id == o.device_id
+          latitude == o.latitude &&
+          longitude == o.longitude
     end
 
     # @see the `==` method
@@ -120,7 +101,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app_id, token, device_id].hash
+      [latitude, longitude].hash
     end
 
     # Builds the object from hash
@@ -190,7 +171,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

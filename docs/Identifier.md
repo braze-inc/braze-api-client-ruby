@@ -1,4 +1,4 @@
-# Braze::Identifier
+# BrazeClient::Identifier
 
 ## Class instance methods
 
@@ -9,9 +9,9 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-Braze::Identifier.openapi_one_of
+BrazeClient::Identifier.openapi_one_of
 # =>
 # [
 #   :'IdentifierOneOf',
@@ -27,12 +27,12 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-Braze::Identifier.build(data)
+BrazeClient::Identifier.build(data)
 # => #<IdentifierOneOf:0x00007fdd4aab02a0>
 
-Braze::Identifier.build(data_that_doesnt_match)
+BrazeClient::Identifier.build(data_that_doesnt_match)
 # => nil
 ```
 

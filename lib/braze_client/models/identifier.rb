@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
+module BrazeClient
   module Identifier
     class << self
       # List of class defined in oneOf (OpenAPI v3)
@@ -82,7 +82,7 @@ module Braze
             return data.each_with_object({}) { |(k, v), hsh| hsh[k] = find_and_cast_into_type(sub_type, v) }
           end
         else # model
-          const = Braze.const_get(klass)
+          const = BrazeClient.const_get(klass)
           if const
             if const.respond_to?(:openapi_one_of) # nested oneOf model
               model = const.build(data)

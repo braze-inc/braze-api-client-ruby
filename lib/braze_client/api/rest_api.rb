@@ -12,7 +12,7 @@ OpenAPI Generator version: 5.2.1
 
 require 'cgi'
 
-module Braze
+module BrazeClient
   class RestApi
     attr_accessor :api_client
 

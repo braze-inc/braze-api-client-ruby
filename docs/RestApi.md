@@ -1,4 +1,4 @@
-# Braze::RestApi
+# BrazeClient::RestApi
 
 All URIs are relative to *http://https:/*
 
@@ -24,21 +24,21 @@ Delete any user profile by specifying a known user identifier
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
+api_instance = BrazeClient::RestApi.new
 body = Object # Object | 
 
 begin
   
   result = api_instance.delete_users(body)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->delete_users: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->delete_users_with_http_info: #{e}"
 end
 ```
@@ -93,21 +93,21 @@ Identify an unidentified (alias-only) user
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
+api_instance = BrazeClient::RestApi.new
 body = Object # Object | 
 
 begin
   
   result = api_instance.identify_users(body)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->identify_users: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->identify_users_with_http_info: #{e}"
 end
 ```
@@ -162,21 +162,21 @@ Add new user aliases for existing identified users or create new unidentified us
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
+api_instance = BrazeClient::RestApi.new
 body = Object # Object | 
 
 begin
   
   result = api_instance.new_user_aliases(body)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->new_user_aliases: #{e}"
 end
 ```
@@ -194,7 +194,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->new_user_aliases_with_http_info: #{e}"
 end
 ```
@@ -231,21 +231,21 @@ Remove your users' old deprecated external IDs. This endpoint completely removes
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
+api_instance = BrazeClient::RestApi.new
 body = Object # Object | 
 
 begin
   
   result = api_instance.remove_external_ids(body)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->remove_external_ids: #{e}"
 end
 ```
@@ -263,7 +263,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->remove_external_ids_with_http_info: #{e}"
 end
 ```
@@ -300,21 +300,21 @@ Set a new (primary) external_id for the user and deprecate their existing extern
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
+api_instance = BrazeClient::RestApi.new
 body = Object # Object | 
 
 begin
   
   result = api_instance.rename_external_ids(body)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->rename_external_ids: #{e}"
 end
 ```
@@ -332,7 +332,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->rename_external_ids_with_http_info: #{e}"
 end
 ```
@@ -369,21 +369,21 @@ Record custom events, purchases, and update user profile attributes
 
 ```ruby
 require 'time'
-require 'braze_api_client'
+require 'braze_client'
 # setup authorization
-Braze.configure do |config|
+BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = Braze::RestApi.new
-users_track_request = Braze::UsersTrackRequest.new({attributes: [Braze::Event.new({name: 'name_example', time: Time.now})]}) # UsersTrackRequest | 
+api_instance = BrazeClient::RestApi.new
+users_track_request = BrazeClient::UsersTrackRequest.new({attributes: [BrazeClient::Event.new({name: 'name_example', time: Time.now})]}) # UsersTrackRequest | 
 
 begin
   
   result = api_instance.track_users(users_track_request)
   p result
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->track_users: #{e}"
 end
 ```
@@ -401,7 +401,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsersTrackResponse>
-rescue Braze::ApiError => e
+rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->track_users_with_http_info: #{e}"
 end
 ```

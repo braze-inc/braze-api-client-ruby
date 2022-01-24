@@ -13,26 +13,17 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class AttributesTwitter
-    attr_accessor :id
+module BrazeClient
+  class GeneralError
+    attr_accessor :code
 
-    attr_accessor :screen_name
-
-    attr_accessor :followers_count
-
-    attr_accessor :friends_count
-
-    attr_accessor :statuses_count
+    attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'screen_name' => :'screen_name',
-        :'followers_count' => :'followers_count',
-        :'friends_count' => :'friends_count',
-        :'statuses_count' => :'statuses_count'
+        :'code' => :'code',
+        :'message' => :'message'
       }
     end
 
@@ -44,11 +35,8 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'screen_name' => :'String',
-        :'followers_count' => :'Integer',
-        :'friends_count' => :'Integer',
-        :'statuses_count' => :'Integer'
+        :'code' => :'Integer',
+        :'message' => :'String'
       }
     end
 
@@ -62,35 +50,23 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::AttributesTwitter` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::GeneralError` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::AttributesTwitter`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::GeneralError`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
-      if attributes.key?(:'screen_name')
-        self.screen_name = attributes[:'screen_name']
-      end
-
-      if attributes.key?(:'followers_count')
-        self.followers_count = attributes[:'followers_count']
-      end
-
-      if attributes.key?(:'friends_count')
-        self.friends_count = attributes[:'friends_count']
-      end
-
-      if attributes.key?(:'statuses_count')
-        self.statuses_count = attributes[:'statuses_count']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
     end
 
@@ -112,11 +88,8 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          screen_name == o.screen_name &&
-          followers_count == o.followers_count &&
-          friends_count == o.friends_count &&
-          statuses_count == o.statuses_count
+          code == o.code &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -128,7 +101,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, screen_name, followers_count, friends_count, statuses_count].hash
+      [code, message].hash
     end
 
     # Builds the object from hash
@@ -198,7 +171,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end

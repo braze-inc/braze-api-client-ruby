@@ -1,4 +1,4 @@
-# Braze::UsersTrackResponse
+# BrazeClient::UsersTrackResponse
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::UsersTrackResponse.new(
+instance = BrazeClient::UsersTrackResponse.new(
   message: null,
   attributes_processed: null,
   events_processed: null,

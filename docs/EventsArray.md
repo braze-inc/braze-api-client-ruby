@@ -1,4 +1,4 @@
-# Braze::EventsArray
+# BrazeClient::EventsArray
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::EventsArray.new(
+instance = BrazeClient::EventsArray.new(
   attributes: null
 )
 ```

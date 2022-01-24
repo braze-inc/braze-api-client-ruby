@@ -1,4 +1,4 @@
-# Braze::Attributes
+# BrazeClient::Attributes
 
 ## Properties
 
@@ -29,9 +29,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::Attributes.new(
+instance = BrazeClient::Attributes.new(
   country: null,
   current_location: null,
   date_of_first_session: null,

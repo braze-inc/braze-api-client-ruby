@@ -1,4 +1,4 @@
-# Braze::AttributesTwitter
+# BrazeClient::AttributesTwitter
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::AttributesTwitter.new(
+instance = BrazeClient::AttributesTwitter.new(
   id: null,
   screen_name: null,
   followers_count: null,

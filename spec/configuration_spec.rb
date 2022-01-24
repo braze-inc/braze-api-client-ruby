@@ -12,14 +12,14 @@ OpenAPI Generator version: 5.2.1
 
 require 'spec_helper'
 
-describe Braze::Configuration do
-  let(:config) { Braze::Configuration.default }
+describe BrazeClient::Configuration do
+  let(:config) { BrazeClient::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("http://https:/")
-    # Braze.configure do |c|
+    # BrazeClient.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

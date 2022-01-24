@@ -1,4 +1,4 @@
-# Braze::AttributesPushTokens
+# BrazeClient::AttributesPushTokens
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'braze_api_client'
+require 'braze_client'
 
-instance = Braze::AttributesPushTokens.new(
+instance = BrazeClient::AttributesPushTokens.new(
   app_id: null,
   token: null,
   device_id: null

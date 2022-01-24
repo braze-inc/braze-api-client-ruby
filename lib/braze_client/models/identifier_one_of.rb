@@ -13,14 +13,14 @@ OpenAPI Generator version: 5.2.1
 require 'date'
 require 'time'
 
-module Braze
-  class IdentifierOneOf2
-    attr_accessor :braze_id
+module BrazeClient
+  class IdentifierOneOf
+    attr_accessor :external_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'braze_id' => :'braze_id'
+        :'external_id' => :'external_id'
       }
     end
 
@@ -32,7 +32,7 @@ module Braze
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'braze_id' => :'String'
+        :'external_id' => :'String'
       }
     end
 
@@ -46,19 +46,19 @@ module Braze
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Braze::IdentifierOneOf2` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::IdentifierOneOf` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Braze::IdentifierOneOf2`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::IdentifierOneOf`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'braze_id')
-        self.braze_id = attributes[:'braze_id']
+      if attributes.key?(:'external_id')
+        self.external_id = attributes[:'external_id']
       end
     end
 
@@ -66,8 +66,8 @@ module Braze
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @braze_id.nil?
-        invalid_properties.push('invalid value for "braze_id", braze_id cannot be nil.')
+      if @external_id.nil?
+        invalid_properties.push('invalid value for "external_id", external_id cannot be nil.')
       end
 
       invalid_properties
@@ -76,7 +76,7 @@ module Braze
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @braze_id.nil?
+      return false if @external_id.nil?
       true
     end
 
@@ -85,7 +85,7 @@ module Braze
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          braze_id == o.braze_id
+          external_id == o.external_id
     end
 
     # @see the `==` method
@@ -97,7 +97,7 @@ module Braze
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [braze_id].hash
+      [external_id].hash
     end
 
     # Builds the object from hash
@@ -167,7 +167,7 @@ module Braze
         end
       else # model
         # models (e.g. Pet) or oneOf
-        klass = Braze.const_get(type)
+        klass = BrazeClient.const_get(type)
         klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
     end
