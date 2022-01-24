@@ -184,7 +184,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://https:/*
+All URIs are relative to *https://rest.iad-01.braze.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

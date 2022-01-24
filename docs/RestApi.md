@@ -1,6 +1,6 @@
 # BrazeClient::RestApi
 
-All URIs are relative to *http://https:/*
+All URIs are relative to *https://rest.iad-01.braze.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |

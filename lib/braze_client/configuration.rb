@@ -138,9 +138,9 @@ module BrazeClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'https'
-      @base_path = '/'
+      @scheme = 'https'
+      @host = 'rest.iad-01.braze.com'
+      @base_path = ''
       @server_index = 0
       @server_operation_index = {}
       @server_variables = {}
@@ -229,7 +229,7 @@ module BrazeClient
     def server_settings
       [
         {
-          url: "https://{server}",
+          url: "https://{host}",
           description: "Braze API server",
           variables: {
             host: {
