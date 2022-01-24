@@ -1,4 +1,4 @@
-# Braze API Ruby Client
+# Braze API Ruby Client ![Tests](https://img.shields.io/github/workflow/status/braze-inc/braze-api-client-ruby/rspec) [![Gem Version](https://img.shields.io/gem/v/braze_client.svg)](https://rubygems.org/gems/braze_client)
 
 Track users, send messages, export data, and more
 
@@ -181,20 +181,6 @@ rescue BrazeClient::ApiError => e
   puts "Exception when calling RestApi->users_track: #{e}"
 end
 ```
-
-## Documentation for API Endpoints
-
-All URIs are relative to *https://rest.iad-01.braze.com*
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*BrazeClient::RestApi* | [**delete_users**](docs/RestApi.md#delete_users) | **POST** /users/delete | 
-*BrazeClient::RestApi* | [**identify_users**](docs/RestApi.md#identify_users) | **POST** /users/identify | 
-*BrazeClient::RestApi* | [**new_user_aliases**](docs/RestApi.md#new_user_aliases) | **POST** /users/alias/new | 
-*BrazeClient::RestApi* | [**remove_external_ids**](docs/RestApi.md#remove_external_ids) | **POST** /users/external_ids/remove | 
-*BrazeClient::RestApi* | [**rename_external_ids**](docs/RestApi.md#rename_external_ids) | **POST** /users/external_ids/rename | 
-*BrazeClient::RestApi* | [**track_users**](docs/RestApi.md#track_users) | **POST** /users/track | 
-
 
 ## Contributing
 
