@@ -24,6 +24,7 @@ docs/RestApi.md
 docs/UsersTrackRequest.md
 docs/UsersTrackResponse.md
 git_push.sh
+git_push.sh
 lib/braze_api_client.rb
 lib/braze_api_client/api/rest_api.rb
 lib/braze_api_client/api_client.rb
