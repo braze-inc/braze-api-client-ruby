@@ -1,4 +1,4 @@
-# Braze::InlineResponse200
+# Braze::UsersTrackResponse
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'braze_api_client'
 
-instance = Braze::InlineResponse200.new(
+instance = Braze::UsersTrackResponse.new(
   message: null,
   attributes_processed: null,
   events_processed: null,

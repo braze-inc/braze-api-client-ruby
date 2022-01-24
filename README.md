@@ -6,40 +6,22 @@ Track users, send messages, export data, and more
 
 ## Installation
 
-### Build gem
+Add the following line to your Gemfile:
 
-To build the Ruby code into a gem:
-
-```shell
-gem build braze_api_client.gemspec
+```
+gem "braze_api_client"
 ```
 
-Then either install the gem locally:
+Followed by running:
 
 ```shell
-gem install ./braze_api_client-1.0.0.gem
+bundle install
 ```
 
-(for development, run `gem install --dev ./braze_api_client-1.0.0.gem` to install the development dependencies)
-
-or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
-
-Finally add this to the Gemfile:
-
-    gem 'braze_api_client', '~> 1.0.0'
-
-### Install from Git
-
-If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
-
-    gem 'braze_api_client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
-
-### Include the Ruby code directly
-
-Include the Ruby code directly using `-I` as follows:
+Or install it yourself as:
 
 ```shell
-ruby -Ilib script.rb
+gem install braze_api_client
 ```
 
 ## Configuration
@@ -68,24 +50,24 @@ require 'braze_api_client'
 # Setup authorization
 Braze.configure do |config|
   config.access_token = 'YOUR_API_KEY'
-  config.host = 'rest.YOUR-REGION.braze.com'
+  config.server_variables[:host] = 'rest.YOUR-REGION.braze.com'
 end
 
 api_instance = Braze::RestApi.new
 body = Object # Object | 
 
 begin
-  result = api_instance.identify_user(body)
+  result = api_instance.delete_users(body)
   p result
 rescue Braze::ApiError => e
-  puts "Exception when calling RestApi->identify_user: #{e}"
+  puts "Exception when calling RestApi->delete_users: #{e}"
 end
 
 ```
 
 
 ## Endpoints
-### Track user
+### Track users
 
 You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/) to record custom events, purchases, and update user profile attributes. Provide up to 75 of each type in a single request.
 
@@ -93,7 +75,7 @@ You can use the `/users/track` [endpoint](https://www.braze.com/docs/api/endpoin
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.track_user({
+  result = braze_api.track_users({
     :events => [{
       :external_id => "user123",
       :app_id => "yourappid",
@@ -124,12 +106,12 @@ rescue Braze::ApiError => e
 end
 ```
 
-### Delete user
+### Delete users
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.delete_user({
+  result = braze_api.delete_users({
     # use any or all of these 3 identifier types
     :external_ids => ["user1", "user2"],
     :user_aliases => ["alias123", "alias456"],
@@ -141,12 +123,12 @@ rescue Braze::ApiError => e
 end
 ```
 
-### New user alias
+### Create new user aliases
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.new_user_alias({
+  result = braze_api.new_user_aliases({
     :user_aliases => [{
       :external_id => "user123", # optional
       :alias_name => "c123",
@@ -159,12 +141,12 @@ rescue Braze::ApiError => e
 end
 ```
 
-### Identify user
+### Identify users
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.identify_user({
+  result = braze_api.identify_users({
     :aliases_to_identify => [{
       :external_id => "user123",
       :user_alias => {
@@ -179,32 +161,12 @@ rescue Braze::ApiError => e
 end
 ```
 
-### Identify user
+### Rename external IDs
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.identify_user({
-    :aliases_to_identify => [{
-      :external_id => "user123",
-      :user_alias => {
-        :alias_name => "c123",
-        :alias_label => "customer_id",
-      }
-    }],
-  })
-  p result
-rescue Braze::ApiError => e
-  puts "Exception when calling RestApi->users_track: #{e}"
-end
-```
-
-### Rename external ID
-```ruby
-braze_api = Braze::RestApi.new
-
-begin
-  result = braze_api.rename_exernal_id({
+  result = braze_api.rename_exernal_ids({
     :external_id_renames => [{
       :current_external_id => "user123",
       :new_external_id => "u123",
@@ -216,12 +178,12 @@ rescue Braze::ApiError => e
 end
 ```
 
-### Remove external ID
+### Remove external IDs
 ```ruby
 braze_api = Braze::RestApi.new
 
 begin
-  result = braze_api.rename_exernal_id({
+  result = braze_api.remove_exernal_ids({
     :external_ids => ["user123", "user456"],
   })
   p result
@@ -232,22 +194,26 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://rest.iad-01.braze.com*
+All URIs are relative to *http://https:/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Braze::RestApi* | [**identify_user**](docs/RestApi.md#identify_user) | **POST** /users/identify | 
-*Braze::RestApi* | [**new_user_alias**](docs/RestApi.md#new_user_alias) | **POST** /users/alias/new | 
-*Braze::RestApi* | [**remove_external_id**](docs/RestApi.md#remove_external_id) | **POST** /users/external_ids/remove | 
-*Braze::RestApi* | [**rename_external_id**](docs/RestApi.md#rename_external_id) | **POST** /users/external_ids/rename | 
-*Braze::RestApi* | [**track_user**](docs/RestApi.md#track_user) | **POST** /users/track | 
-*Braze::RestApi* | [**user_delete**](docs/RestApi.md#user_delete) | **POST** /users/delete | 
+*Braze::RestApi* | [**delete_users**](docs/RestApi.md#delete_users) | **POST** /users/delete | 
+*Braze::RestApi* | [**identify_users**](docs/RestApi.md#identify_users) | **POST** /users/identify | 
+*Braze::RestApi* | [**new_user_aliases**](docs/RestApi.md#new_user_aliases) | **POST** /users/alias/new | 
+*Braze::RestApi* | [**remove_external_ids**](docs/RestApi.md#remove_external_ids) | **POST** /users/external_ids/remove | 
+*Braze::RestApi* | [**rename_external_ids**](docs/RestApi.md#rename_external_ids) | **POST** /users/external_ids/rename | 
+*Braze::RestApi* | [**track_users**](docs/RestApi.md#track_users) | **POST** /users/track | 
 
 
 ## Contributing
 
 This library is automatically generated. To make changes, please see [braze-api-client-codegen](https://github.com/braze-inc/braze-api-client-codegen)
 
-- API version: 1.0.0
+- API version: 0.1.0
 - Package version: 1.0.0
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
+
+## Legal
+
+Customer acknowledges and agrees that this software is being provided at no charge by Braze for Customer's use in connection with the Braze Services and that this software is separate from, and not part of, the Braze Services.  In addition, THIS SOFTWARE IS PROVIDED BY BRAZE "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BRAZE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
