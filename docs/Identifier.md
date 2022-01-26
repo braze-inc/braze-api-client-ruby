@@ -9,7 +9,7 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'braze_client'
+require 'braze_api_client'
 
 BrazeClient::Identifier.openapi_one_of
 # =>
@@ -27,7 +27,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'braze_client'
+require 'braze_api_client'
 
 BrazeClient::Identifier.build(data)
 # => #<IdentifierOneOf:0x00007fdd4aab02a0>

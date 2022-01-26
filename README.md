@@ -1,4 +1,4 @@
-# Braze API Ruby Client [![tests](https://github.com/braze-inc/braze-api-client-ruby/actions/workflows/rspec.yml/badge.svg)](https://github.com/braze-inc/braze-api-client-ruby/actions/workflows/rspec.yml) [![gem version](https://img.shields.io/gem/v/braze_client.svg)](https://rubygems.org/gems/braze_client)
+# Braze API Ruby Client ![Tests](https://img.shields.io/github/workflow/status/braze-inc/braze-api-client-ruby/rspec) [![Gem Version](https://img.shields.io/gem/v/braze_client.svg)](https://rubygems.org/gems/braze_client)
 
 Track users, send messages, export data, and more
 
@@ -9,7 +9,7 @@ Track users, send messages, export data, and more
 Add the following line to your Gemfile:
 
 ```
-gem "braze_client"
+gem "braze_api_client"
 ```
 
 Followed by running:
@@ -21,7 +21,7 @@ bundle install
 Or install it yourself as:
 
 ```shell
-gem install braze_client
+gem install braze_api_client
 ```
 
 ## Configuration
@@ -45,7 +45,7 @@ You can determine which API host to use based on your Braze dashboard URL:
 
 ```ruby
 # Load the gem
-require 'braze_client'
+require 'braze_api_client'
 
 # Setup authorization
 BrazeClient.configure do |config|

@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'braze_client'
+require 'braze_api_client'
 
 instance = BrazeClient::IdentifierOneOf1.new(
   user_alias: null

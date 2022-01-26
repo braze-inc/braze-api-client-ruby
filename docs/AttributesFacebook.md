@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'braze_client'
+require 'braze_api_client'
 
 instance = BrazeClient::AttributesFacebook.new(
   id: null,

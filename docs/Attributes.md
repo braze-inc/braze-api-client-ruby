@@ -29,7 +29,7 @@
 ## Example
 
 ```ruby
-require 'braze_client'
+require 'braze_api_client'
 
 instance = BrazeClient::Attributes.new(
   country: null,

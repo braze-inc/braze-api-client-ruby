@@ -31,7 +31,7 @@ module BrazeClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "braze_api_client ruby v0.1.0"
+      @user_agent = "braze_client ruby v0.1.0"
       @default_headers = {
         'Content-Type' => 'application/json',
         'User-Agent' => @user_agent

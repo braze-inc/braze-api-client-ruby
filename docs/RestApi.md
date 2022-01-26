@@ -24,7 +24,7 @@ Delete any user profile by specifying a known user identifier
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
@@ -93,7 +93,7 @@ Identify an unidentified (alias-only) user
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
@@ -162,7 +162,7 @@ Add new user aliases for existing identified users or create new unidentified us
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
@@ -231,7 +231,7 @@ Remove your users' old deprecated external IDs. This endpoint completely removes
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
@@ -300,7 +300,7 @@ Set a new (primary) external_id for the user and deprecate their existing extern
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth
@@ -369,7 +369,7 @@ Record custom events, purchases, and update user profile attributes
 
 ```ruby
 require 'time'
-require 'braze_client'
+require 'braze_api_client'
 # setup authorization
 BrazeClient.configure do |config|
   # Configure Bearer authorization: bearerAuth

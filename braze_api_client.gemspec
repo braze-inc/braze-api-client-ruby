@@ -13,10 +13,10 @@ OpenAPI Generator version: 5.2.1
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "braze_client/version"
+require "braze_api_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "braze_client"
+  s.name        = "braze_api_client"
   s.version     = BrazeClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]
