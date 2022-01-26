@@ -1,4 +1,4 @@
-# Braze API Ruby Client ![Tests](https://img.shields.io/github/workflow/status/braze-inc/braze-api-client-ruby/rspec) [![Gem Version](https://img.shields.io/gem/v/braze_client.svg)](https://rubygems.org/gems/braze_client)
+# Braze API Ruby Client [![Ruby](https://github.com/braze-inc/braze-api-client-ruby/actions/workflows/rspec.yaml/badge.svg)](https://github.com/braze-inc/braze-api-client-ruby/actions/workflows/rspec.yaml) [![Gem Version](https://img.shields.io/gem/v/braze_api_client.svg)](https://rubygems.org/gems/braze_api_client)
 
 Track users, send messages, export data, and more
 
