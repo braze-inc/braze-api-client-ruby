@@ -186,6 +186,6 @@ end
 
 This library is automatically generated. To make changes, please see [braze-api-client-codegen](https://github.com/braze-inc/braze-api-client-codegen)
 
-- API version: 0.1.0
-- Package version: 0.1.0
+- API version: 0.1.1
+- Package version: 0.1.1
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
