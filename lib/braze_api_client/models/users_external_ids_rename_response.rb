@@ -14,13 +14,19 @@ require 'date'
 require 'time'
 
 module BrazeClient
-  class IdentifierOneOf1
-    attr_accessor :user_alias
+  class UsersExternalIdsRenameResponse
+    attr_accessor :message
+
+    attr_accessor :rename_errors
+
+    attr_accessor :external_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'user_alias' => :'user_alias'
+        :'message' => :'message',
+        :'rename_errors' => :'rename_errors',
+        :'external_ids' => :'external_ids'
       }
     end
 
@@ -32,7 +38,9 @@ module BrazeClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'user_alias' => :'String'
+        :'message' => :'String',
+        :'rename_errors' => :'Array<Object>',
+        :'external_ids' => :'Array<UsersExternalIdsRenameResponseExternalIds>'
       }
     end
 
@@ -46,19 +54,31 @@ module BrazeClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::IdentifierOneOf1` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersExternalIdsRenameResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::IdentifierOneOf1`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersExternalIdsRenameResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'user_alias')
-        self.user_alias = attributes[:'user_alias']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'rename_errors')
+        if (value = attributes[:'rename_errors']).is_a?(Array)
+          self.rename_errors = value
+        end
+      end
+
+      if attributes.key?(:'external_ids')
+        if (value = attributes[:'external_ids']).is_a?(Array)
+          self.external_ids = value
+        end
       end
     end
 
@@ -66,17 +86,12 @@ module BrazeClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @user_alias.nil?
-        invalid_properties.push('invalid value for "user_alias", user_alias cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @user_alias.nil?
       true
     end
 
@@ -85,7 +100,9 @@ module BrazeClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user_alias == o.user_alias
+          message == o.message &&
+          rename_errors == o.rename_errors &&
+          external_ids == o.external_ids
     end
 
     # @see the `==` method
@@ -97,7 +114,7 @@ module BrazeClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user_alias].hash
+      [message, rename_errors, external_ids].hash
     end
 
     # Builds the object from hash

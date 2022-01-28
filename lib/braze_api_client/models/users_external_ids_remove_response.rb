@@ -14,16 +14,19 @@ require 'date'
 require 'time'
 
 module BrazeClient
-  class AttributesCurrentLocation
-    attr_accessor :latitude
+  class UsersExternalIdsRemoveResponse
+    attr_accessor :message
 
-    attr_accessor :longitude
+    attr_accessor :removal_errors
+
+    attr_accessor :removed_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'latitude' => :'latitude',
-        :'longitude' => :'longitude'
+        :'message' => :'message',
+        :'removal_errors' => :'removal_errors',
+        :'removed_ids' => :'removed_ids'
       }
     end
 
@@ -35,8 +38,9 @@ module BrazeClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'latitude' => :'Float',
-        :'longitude' => :'Float'
+        :'message' => :'String',
+        :'removal_errors' => :'Array<Object>',
+        :'removed_ids' => :'Array<String>'
       }
     end
 
@@ -50,23 +54,31 @@ module BrazeClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::AttributesCurrentLocation` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersExternalIdsRemoveResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::AttributesCurrentLocation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersExternalIdsRemoveResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'latitude')
-        self.latitude = attributes[:'latitude']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'longitude')
-        self.longitude = attributes[:'longitude']
+      if attributes.key?(:'removal_errors')
+        if (value = attributes[:'removal_errors']).is_a?(Array)
+          self.removal_errors = value
+        end
+      end
+
+      if attributes.key?(:'removed_ids')
+        if (value = attributes[:'removed_ids']).is_a?(Array)
+          self.removed_ids = value
+        end
       end
     end
 
@@ -88,8 +100,9 @@ module BrazeClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          latitude == o.latitude &&
-          longitude == o.longitude
+          message == o.message &&
+          removal_errors == o.removal_errors &&
+          removed_ids == o.removed_ids
     end
 
     # @see the `==` method
@@ -101,7 +114,7 @@ module BrazeClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [latitude, longitude].hash
+      [message, removal_errors, removed_ids].hash
     end
 
     # Builds the object from hash

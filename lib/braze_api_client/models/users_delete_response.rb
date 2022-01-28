@@ -14,13 +14,13 @@ require 'date'
 require 'time'
 
 module BrazeClient
-  class UsersTrackRequest
-    attr_accessor :attributes
+  class UsersDeleteResponse
+    attr_accessor :deleted
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'attributes' => :'attributes'
+        :'deleted' => :'deleted'
       }
     end
 
@@ -32,7 +32,7 @@ module BrazeClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'attributes' => :'Array<Event>'
+        :'deleted' => :'Integer'
       }
     end
 
@@ -42,33 +42,23 @@ module BrazeClient
       ])
     end
 
-    # List of class defined in anyOf (OpenAPI v3)
-    def self.openapi_any_of
-      [
-      :'AttributesArray',
-      :'EventsArray'
-      ]
-    end
-
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersTrackRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersDeleteResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersTrackRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersDeleteResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Array)
-          self.attributes = value
-        end
+      if attributes.key?(:'deleted')
+        self.deleted = attributes[:'deleted']
       end
     end
 
@@ -76,29 +66,12 @@ module BrazeClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @attributes.nil?
-        invalid_properties.push('invalid value for "attributes", attributes cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @attributes.nil?
-      _any_of_found = false
-      self.class.openapi_any_of.each do |_class|
-        _any_of = BrazeClient.const_get(_class).build_from_hash(self.to_hash)
-        if _any_of.valid?
-          _any_of_found = true
-        end
-      end
-
-      if !_any_of_found
-        return false
-      end
-
       true
     end
 
@@ -107,7 +80,7 @@ module BrazeClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          attributes == o.attributes
+          deleted == o.deleted
     end
 
     # @see the `==` method
@@ -119,7 +92,7 @@ module BrazeClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [attributes].hash
+      [deleted].hash
     end
 
     # Builds the object from hash

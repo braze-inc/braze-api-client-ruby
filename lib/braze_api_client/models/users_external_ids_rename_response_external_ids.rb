@@ -14,25 +14,16 @@ require 'date'
 require 'time'
 
 module BrazeClient
-  class Event
-    attr_accessor :name
+  class UsersExternalIdsRenameResponseExternalIds
+    attr_accessor :current_external_id
 
-    attr_accessor :time
-
-    attr_accessor :app_id
-
-    attr_accessor :properties
-
-    attr_accessor :_update_existing_only
+    attr_accessor :new_external_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'time' => :'time',
-        :'app_id' => :'app_id',
-        :'properties' => :'properties',
-        :'_update_existing_only' => :'_update_existing_only'
+        :'current_external_id' => :'current_external_id',
+        :'new_external_id' => :'new_external_id'
       }
     end
 
@@ -44,11 +35,8 @@ module BrazeClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'time' => :'Time',
-        :'app_id' => :'String',
-        :'properties' => :'Object',
-        :'_update_existing_only' => :'Boolean'
+        :'current_external_id' => :'String',
+        :'new_external_id' => :'String'
       }
     end
 
@@ -62,35 +50,23 @@ module BrazeClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::Event` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `BrazeClient::UsersExternalIdsRenameResponseExternalIds` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::Event`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `BrazeClient::UsersExternalIdsRenameResponseExternalIds`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'current_external_id')
+        self.current_external_id = attributes[:'current_external_id']
       end
 
-      if attributes.key?(:'time')
-        self.time = attributes[:'time']
-      end
-
-      if attributes.key?(:'app_id')
-        self.app_id = attributes[:'app_id']
-      end
-
-      if attributes.key?(:'properties')
-        self.properties = attributes[:'properties']
-      end
-
-      if attributes.key?(:'_update_existing_only')
-        self._update_existing_only = attributes[:'_update_existing_only']
+      if attributes.key?(:'new_external_id')
+        self.new_external_id = attributes[:'new_external_id']
       end
     end
 
@@ -98,22 +74,12 @@ module BrazeClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @time.nil?
-        invalid_properties.push('invalid value for "time", time cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @time.nil?
       true
     end
 
@@ -122,11 +88,8 @@ module BrazeClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          time == o.time &&
-          app_id == o.app_id &&
-          properties == o.properties &&
-          _update_existing_only == o._update_existing_only
+          current_external_id == o.current_external_id &&
+          new_external_id == o.new_external_id
     end
 
     # @see the `==` method
@@ -138,7 +101,7 @@ module BrazeClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, time, app_id, properties, _update_existing_only].hash
+      [current_external_id, new_external_id].hash
     end
 
     # Builds the object from hash

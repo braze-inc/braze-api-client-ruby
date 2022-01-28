@@ -1,18 +1,18 @@
-# BrazeClient::IdentifierOneOf
+# BrazeClient::UsersDeleteResponse
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **external_id** | **String** |  |  |
+| **deleted** | **Integer** |  | [optional] |
 
 ## Example
 
 ```ruby
 require 'braze_api_client'
 
-instance = BrazeClient::IdentifierOneOf.new(
-  external_id: null
+instance = BrazeClient::UsersDeleteResponse.new(
+  deleted: null
 )
 ```
 

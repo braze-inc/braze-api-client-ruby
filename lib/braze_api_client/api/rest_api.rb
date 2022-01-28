@@ -22,7 +22,7 @@ module BrazeClient
     # Delete any user profile by specifying a known user identifier
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [UsersDeleteResponse]
     def delete_users(body, opts = {})
       data, _status_code, _headers = delete_users_with_http_info(body, opts)
       data
@@ -31,7 +31,7 @@ module BrazeClient
     # Delete any user profile by specifying a known user identifier
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(UsersDeleteResponse, Integer, Hash)>] UsersDeleteResponse data, response status code and response headers
     def delete_users_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.delete_users ...'
@@ -60,7 +60,7 @@ module BrazeClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'UsersDeleteResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -85,7 +85,7 @@ module BrazeClient
     # Identify an unidentified (alias-only) user
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [UsersIdentifyResponse]
     def identify_users(body, opts = {})
       data, _status_code, _headers = identify_users_with_http_info(body, opts)
       data
@@ -94,7 +94,7 @@ module BrazeClient
     # Identify an unidentified (alias-only) user
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(UsersIdentifyResponse, Integer, Hash)>] UsersIdentifyResponse data, response status code and response headers
     def identify_users_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.identify_users ...'
@@ -123,7 +123,7 @@ module BrazeClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'UsersIdentifyResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -148,7 +148,7 @@ module BrazeClient
     # Add new user aliases for existing identified users or create new unidentified users
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [UsersAliasNewResponse]
     def new_user_aliases(body, opts = {})
       data, _status_code, _headers = new_user_aliases_with_http_info(body, opts)
       data
@@ -157,7 +157,7 @@ module BrazeClient
     # Add new user aliases for existing identified users or create new unidentified users
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(UsersAliasNewResponse, Integer, Hash)>] UsersAliasNewResponse data, response status code and response headers
     def new_user_aliases_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.new_user_aliases ...'
@@ -186,7 +186,7 @@ module BrazeClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'UsersAliasNewResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -211,7 +211,7 @@ module BrazeClient
     # Remove your users' old deprecated external IDs. This endpoint completely removes the deprecated ID and cannot be undone.
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [UsersExternalIdsRemoveResponse]
     def remove_external_ids(body, opts = {})
       data, _status_code, _headers = remove_external_ids_with_http_info(body, opts)
       data
@@ -220,7 +220,7 @@ module BrazeClient
     # Remove your users&#39; old deprecated external IDs. This endpoint completely removes the deprecated ID and cannot be undone.
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(UsersExternalIdsRemoveResponse, Integer, Hash)>] UsersExternalIdsRemoveResponse data, response status code and response headers
     def remove_external_ids_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.remove_external_ids ...'
@@ -249,7 +249,7 @@ module BrazeClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'UsersExternalIdsRemoveResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -274,7 +274,7 @@ module BrazeClient
     # Set a new (primary) external_id for the user and deprecate their existing external_id
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [UsersExternalIdsRenameResponse]
     def rename_external_ids(body, opts = {})
       data, _status_code, _headers = rename_external_ids_with_http_info(body, opts)
       data
@@ -283,7 +283,7 @@ module BrazeClient
     # Set a new (primary) external_id for the user and deprecate their existing external_id
     # @param body [Object] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(UsersExternalIdsRenameResponse, Integer, Hash)>] UsersExternalIdsRenameResponse data, response status code and response headers
     def rename_external_ids_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.rename_external_ids ...'
@@ -312,7 +312,7 @@ module BrazeClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'UsersExternalIdsRenameResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -335,25 +335,25 @@ module BrazeClient
     end
 
     # Record custom events, purchases, and update user profile attributes
-    # @param users_track_request [UsersTrackRequest] 
+    # @param body [Object] 
     # @param [Hash] opts the optional parameters
     # @return [UsersTrackResponse]
-    def track_users(users_track_request, opts = {})
-      data, _status_code, _headers = track_users_with_http_info(users_track_request, opts)
+    def track_users(body, opts = {})
+      data, _status_code, _headers = track_users_with_http_info(body, opts)
       data
     end
 
     # Record custom events, purchases, and update user profile attributes
-    # @param users_track_request [UsersTrackRequest] 
+    # @param body [Object] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsersTrackResponse, Integer, Hash)>] UsersTrackResponse data, response status code and response headers
-    def track_users_with_http_info(users_track_request, opts = {})
+    def track_users_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RestApi.track_users ...'
       end
-      # verify the required parameter 'users_track_request' is set
-      if @api_client.config.client_side_validation && users_track_request.nil?
-        fail ArgumentError, "Missing the required parameter 'users_track_request' when calling RestApi.track_users"
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling RestApi.track_users"
       end
       # resource path
       local_var_path = '/users/track'
@@ -372,7 +372,7 @@ module BrazeClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(users_track_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'UsersTrackResponse'

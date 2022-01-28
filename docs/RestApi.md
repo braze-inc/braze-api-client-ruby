@@ -14,7 +14,7 @@ All URIs are relative to *https://rest.iad-01.braze.com*
 
 ## delete_users
 
-> Object delete_users(body)
+> <UsersDeleteResponse> delete_users(body)
 
 
 
@@ -47,7 +47,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_users_with_http_info(body)
+> <Array(<UsersDeleteResponse>, Integer, Hash)> delete_users_with_http_info(body)
 
 ```ruby
 begin
@@ -55,7 +55,7 @@ begin
   data, status_code, headers = api_instance.delete_users_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <UsersDeleteResponse>
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->delete_users_with_http_info: #{e}"
 end
@@ -69,7 +69,7 @@ end
 
 ### Return type
 
-**Object**
+[**UsersDeleteResponse**](UsersDeleteResponse.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ end
 
 ## identify_users
 
-> Object identify_users(body)
+> <UsersIdentifyResponse> identify_users(body)
 
 
 
@@ -116,7 +116,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> identify_users_with_http_info(body)
+> <Array(<UsersIdentifyResponse>, Integer, Hash)> identify_users_with_http_info(body)
 
 ```ruby
 begin
@@ -124,7 +124,7 @@ begin
   data, status_code, headers = api_instance.identify_users_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <UsersIdentifyResponse>
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->identify_users_with_http_info: #{e}"
 end
@@ -138,7 +138,7 @@ end
 
 ### Return type
 
-**Object**
+[**UsersIdentifyResponse**](UsersIdentifyResponse.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ end
 
 ## new_user_aliases
 
-> Object new_user_aliases(body)
+> <UsersAliasNewResponse> new_user_aliases(body)
 
 
 
@@ -185,7 +185,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> new_user_aliases_with_http_info(body)
+> <Array(<UsersAliasNewResponse>, Integer, Hash)> new_user_aliases_with_http_info(body)
 
 ```ruby
 begin
@@ -193,7 +193,7 @@ begin
   data, status_code, headers = api_instance.new_user_aliases_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <UsersAliasNewResponse>
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->new_user_aliases_with_http_info: #{e}"
 end
@@ -207,7 +207,7 @@ end
 
 ### Return type
 
-**Object**
+[**UsersAliasNewResponse**](UsersAliasNewResponse.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ end
 
 ## remove_external_ids
 
-> Object remove_external_ids(body)
+> <UsersExternalIdsRemoveResponse> remove_external_ids(body)
 
 
 
@@ -254,7 +254,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> remove_external_ids_with_http_info(body)
+> <Array(<UsersExternalIdsRemoveResponse>, Integer, Hash)> remove_external_ids_with_http_info(body)
 
 ```ruby
 begin
@@ -262,7 +262,7 @@ begin
   data, status_code, headers = api_instance.remove_external_ids_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <UsersExternalIdsRemoveResponse>
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->remove_external_ids_with_http_info: #{e}"
 end
@@ -276,7 +276,7 @@ end
 
 ### Return type
 
-**Object**
+[**UsersExternalIdsRemoveResponse**](UsersExternalIdsRemoveResponse.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ end
 
 ## rename_external_ids
 
-> Object rename_external_ids(body)
+> <UsersExternalIdsRenameResponse> rename_external_ids(body)
 
 
 
@@ -323,7 +323,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> rename_external_ids_with_http_info(body)
+> <Array(<UsersExternalIdsRenameResponse>, Integer, Hash)> rename_external_ids_with_http_info(body)
 
 ```ruby
 begin
@@ -331,7 +331,7 @@ begin
   data, status_code, headers = api_instance.rename_external_ids_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <UsersExternalIdsRenameResponse>
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->rename_external_ids_with_http_info: #{e}"
 end
@@ -345,7 +345,7 @@ end
 
 ### Return type
 
-**Object**
+[**UsersExternalIdsRenameResponse**](UsersExternalIdsRenameResponse.md)
 
 ### Authorization
 
@@ -359,7 +359,7 @@ end
 
 ## track_users
 
-> <UsersTrackResponse> track_users(users_track_request)
+> <UsersTrackResponse> track_users(body)
 
 
 
@@ -377,11 +377,11 @@ BrazeClient.configure do |config|
 end
 
 api_instance = BrazeClient::RestApi.new
-users_track_request = BrazeClient::UsersTrackRequest.new({attributes: [BrazeClient::Event.new({name: 'name_example', time: Time.now})]}) # UsersTrackRequest | 
+body = Object # Object | 
 
 begin
   
-  result = api_instance.track_users(users_track_request)
+  result = api_instance.track_users(body)
   p result
 rescue BrazeClient::ApiError => e
   puts "Error when calling RestApi->track_users: #{e}"
@@ -392,12 +392,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UsersTrackResponse>, Integer, Hash)> track_users_with_http_info(users_track_request)
+> <Array(<UsersTrackResponse>, Integer, Hash)> track_users_with_http_info(body)
 
 ```ruby
 begin
   
-  data, status_code, headers = api_instance.track_users_with_http_info(users_track_request)
+  data, status_code, headers = api_instance.track_users_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UsersTrackResponse>
@@ -410,7 +410,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **users_track_request** | [**UsersTrackRequest**](UsersTrackRequest.md) |  |  |
+| **body** | **Object** |  |  |
 
 ### Return type
 
